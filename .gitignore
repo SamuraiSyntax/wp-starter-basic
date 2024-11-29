@@ -37,3 +37,15 @@ wp-cli.local.yml
 *.bak
 *.swp
 *~
+
+# Fichiers compilés CSS
+/assets/css/*
+!assets/css/.gitkeep
+
+# Fichiers de cache WordPress
+*.php_cs.cache
+.phpunit.result.cache
+
+# Fichiers de build
+/dist
+/build
