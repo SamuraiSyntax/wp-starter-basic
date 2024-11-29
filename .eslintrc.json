@@ -1,5 +1,5 @@
 {
-  "extends": ["eslint:recommended", "wordpress"],
+  "extends": ["eslint:recommended", "wordpress", "prettier"],
   "env": {
     "browser": true,
     "es6": true
