@@ -1,0 +1,28 @@
+@use "../../variables" as *;
+@use "menu-item" as item;
+
+@mixin styles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &.toggled {
+      display: block;
+    }
+  }
+
+  /* Items du menu */
+  > li {
+    @include item.styles;
+  }
+}

@@ -1,0 +1,50 @@
+@use "../variables" as *;
+
+/* Header */
+.site-header {
+  padding: $spacing-md 0;
+  background: $color-light;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-sm 0;
+  }
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: $spacing-md;
+
+  .site-logo {
+    max-width: 150px;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .site-title {
+    margin: 0;
+    font-size: 1.5rem;
+
+    a {
+      color: $color-dark;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .site-description {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    color: $color-secondary;
+  }
+}
