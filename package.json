@@ -5,12 +5,13 @@
   "scripts": {
     "sass": "sass assets/sass/style.scss:assets/css/style.css --style compressed --watch",
     "sass:build": "sass assets/sass/style.scss:assets/css/style.css --style compressed",
-    "lint:scss": "stylelint 'assets/sass/**/*.scss'",
-    "lint:js": "eslint 'assets/js/**/*.js'",
+    "lint:scss": "stylelint \"assets/sass/**/*.scss\" --fix",
+    "lint:js": "eslint \"assets/js/**/*.js\" --fix",
     "lint": "npm run lint:scss && npm run lint:js",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
-  "author": "Votre Nom <votre@email.com>",
+  "author": "SamuraiSyntax <contact@dev-nanard.fr>",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
     "sass": "^1.81.0",
@@ -18,6 +19,7 @@
     "stylelint-config-standard-scss": "^10.0.0",
     "eslint": "^8.0.0",
     "eslint-config-wordpress": "^2.0.0",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "husky": "^8.0.0"
   }
 }
