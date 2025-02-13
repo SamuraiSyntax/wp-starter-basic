@@ -1,9 +1,48 @@
-// Couleurs
-$color-primary: #007bff !default;
-$color-secondary: #6c757d !default;
-$color-success: #28a745 !default;
-$color-info: #17a2b8 !default;
-$color-warning: #ffc107 !default;
-$color-danger: #dc3545 !default;
-$color-light: #f8f9fa !default;
-$color-dark: #343a40 !default;
+/* Variables de couleurs */
+:root {
+  /* Couleurs principales */
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-primary-light: #66b0ff;
+
+  --color-secondary: #6c757d;
+  --color-secondary-dark: #545b62;
+  --color-secondary-light: #a1a8ae;
+
+  /* Couleurs sémantiques */
+  --color-success: #28a745;
+  --color-success-dark: #1e7e34;
+  --color-success-light: #48c764;
+
+  --color-danger: #dc3545;
+  --color-danger-dark: #bd2130;
+  --color-danger-light: #e4606d;
+
+  --color-warning: #ffc107;
+  --color-warning-dark: #d39e00;
+  --color-warning-light: #ffcd39;
+
+  --color-info: #17a2b8;
+  --color-info-dark: #117a8b;
+  --color-info-light: #3dd5f3;
+
+  /* Couleurs de texte */
+  --color-text: #212529;
+  --color-text-light: #6c757d;
+  --color-text-lighter: #adb5bd;
+
+  /* Couleurs de fond */
+  --color-background: #ffffff;
+  --color-background-alt: #f8f9fa;
+  --color-background-dark: #e9ecef;
+
+  /* Couleurs de bordure */
+  --color-border: #dee2e6;
+  --color-border-dark: #ced4da;
+  --color-border-light: #e9ecef;
+
+  /* Couleurs d'overlay */
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-overlay-light: rgba(0, 0, 0, 0.25);
+  --color-overlay-dark: rgba(0, 0, 0, 0.75);
+}

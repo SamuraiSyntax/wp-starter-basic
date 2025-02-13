@@ -1,50 +1,80 @@
-@use "../variables" as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as mix;
+@use 'sass:map';
 
-/* Header */
+/* Styles de l'en-tête */
 .site-header {
-  padding: $spacing-md 0;
-  background: $color-light;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: sticky;
+  top: 0;
+  background-color: map.get($colors, 'white');
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: map.get($z-index, 'sticky');
+  backdrop-filter: blur(8px);
+  padding: map.get($spacers, 2) 0;
 
-  @media (max-width: $breakpoint-md) {
-    padding: $spacing-sm 0;
+  &__container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: map.get($spacers, 3);
+    flex-direction: row;
+    justify-content: space-between;
   }
-}
 
-.site-branding {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: $spacing-md;
+  &__branding {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacers, 3);
 
-  .site-logo {
-    max-width: 150px;
-    height: auto;
-
-    img {
-      width: 100%;
-      height: auto;
+    @include mix.breakpoint('md') {
+      order: 1;
     }
   }
 
-  .site-title {
+  &__logo {
+    img {
+      height: auto;
+      max-height: 50px;
+      width: auto;
+    }
+  }
+
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  &__title {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: map.get($font-sizes, 'xl');
+    line-height: 1.2;
 
     a {
-      color: $color-dark;
+      color: map.get($colors, 'gray', 900);
       text-decoration: none;
+      transition: map.get($transitions, 'base');
 
       &:hover {
-        color: $color-primary;
+        color: map.get($colors, 'primary');
       }
     }
   }
 
-  .site-description {
-    margin: 0.25rem 0 0;
-    font-size: 0.875rem;
-    color: $color-secondary;
+  &__description {
+    margin: map.get($spacers, 1) 0 0;
+    font-size: map.get($font-sizes, 'sm');
+    color: map.get($colors, 'gray', 600);
+  }
+}
+
+/* Ajustement pour l'admin bar WordPress */
+.admin-bar .site-header {
+  top: 32px;
+
+  @media screen and (max-width: 782px) {
+    top: 46px;
   }
 }

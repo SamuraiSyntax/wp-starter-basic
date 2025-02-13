@@ -1,15 +1,30 @@
 {
-  "extends": ["eslint:recommended", "wordpress", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "wordpress",
+    "prettier",
+    "plugin:@wordpress/eslint-plugin/recommended"
+  ],
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jquery": true,
+    "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "no-console": "warn",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "prefer-const": "warn",
+    "no-var": "error",
+    "@wordpress/no-unsafe-wp-apis": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

@@ -1,30 +1,49 @@
 # Dependencies
-/node_modules
-/vendor
+/node_modules/
+/vendor/
+/bower_components/
 
-# Compiled files
-/assets/css/*.map
+# Build outputs
+/dist/
+/build/
+/assets/css/*
+!/assets/css/.gitkeep
+/assets/js/*.min.js
+/assets/js/*.min.js.map
 
-# Environment files
-.env
-.env.*
+# Development files
+.env*
 !.env.example
-
-# Editor files
-.idea/
-.vscode/
-*.sublime-project
-*.sublime-workspace
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.phpunit.result.cache
+.php_cs.cache
+.eslintcache
+.stylelintcache
+*.hot-update.js
+*.hot-update.json
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # WordPress specific
 *.php-cs-fixer.cache
@@ -33,19 +52,29 @@ phpcs.xml
 phpunit.xml
 wp-cli.local.yml
 
-# Backup files
+# Coverage reports
+/coverage/
+/clover.xml
+
+# Performance reports
+/lighthouse/
+/webpagetest/
+
+# Cache
+.cache/
+.temp/
+
+# GitHub
+.github/
+
+# Node configuration
+.npmrc
+.nvmrc
+
+# Compiled files
+/assets/css/*.map
+
+# OS files
 *.bak
 *.swp
 *~
-
-# Fichiers compilés CSS
-/assets/css/*
-!assets/css/.gitkeep
-
-# Fichiers de cache WordPress
-*.php_cs.cache
-.phpunit.result.cache
-
-# Fichiers de build
-/dist
-/build

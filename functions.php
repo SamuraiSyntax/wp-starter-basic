@@ -88,3 +88,39 @@ add_action('widgets_init', 'wp_starter_basic_widgets_init');
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Vérifie les dépendances du thème
+ */
+function wp_starter_basic_check_dependencies()
+{
+  $notices = array();
+
+  // Vérifie si ACF est actif
+  if (!class_exists('ACF') && !function_exists('get_field')) {
+    $notices[] = sprintf(
+      /* translators: %s: lien vers la page des plugins */
+      __('Le thème recommande l\'installation du plugin <a href="%s">Advanced Custom Fields</a> pour toutes les fonctionnalités.', 'wp-starter-basic'),
+      admin_url('plugin-install.php?s=advanced-custom-fields&tab=search&type=term')
+    );
+  }
+
+  // Vérifie si Yoast SEO est actif
+  if (!function_exists('yoast_breadcrumb')) {
+    $notices[] = sprintf(
+      /* translators: %s: lien vers la page des plugins */
+      __('Pour une meilleure navigation, installez <a href="%s">Yoast SEO</a> ou un autre plugin de fil d\'ariane.', 'wp-starter-basic'),
+      admin_url('plugin-install.php?s=wordpress-seo&tab=search&type=term')
+    );
+  }
+
+  // Affiche les notices dans l'admin si nécessaire
+  if (!empty($notices) && is_admin()) {
+    foreach ($notices as $notice) {
+      add_action('admin_notices', function () use ($notice) {
+        echo '<div class="notice notice-info is-dismissible"><p>' . wp_kses_post($notice) . '</p></div>';
+      });
+    }
+  }
+}
+add_action('admin_init', 'wp_starter_basic_check_dependencies');
